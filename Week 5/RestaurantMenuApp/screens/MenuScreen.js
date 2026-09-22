@@ -4,21 +4,13 @@ import Colors from '../constants/Colors';
 import Title from '../components/Title';
 import MenuItem from '../components/MenuItem';
 
-const MENU_DATA = [
-  { id: '1', name: 'Truffle Burger', price: 15.99, image: require('../assets/burger.jpg') },
-  { id: '2', name: 'Margherita Pizza', price: 13.50, image: require('../assets/pizza.jpg') },
-  { id: '3', name: 'Caesar Salad', price: 10.00, image: require('../assets/salad.jpg') },
-  { id: '4', name: 'Garlic Butter Pasta', price: 14.25, image: require('../assets/pasta.jpg') },
-  { id: '5', name: 'Chocolate Lava Cake', price: 7.99, image: require('../assets/dessert.jpg') },
-];
-
-export default function MenuScreen({ onBackToHome }) {
+export default function MenuScreen({ menuData, onBackToHome }) {
   return (
     <View style={styles.container}>
       <Title text="Our Menu" />
       
       <FlatList
-        data={MENU_DATA}
+        data={menuData}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
           <MenuItem 
